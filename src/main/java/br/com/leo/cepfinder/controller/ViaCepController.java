@@ -21,7 +21,7 @@ public record ViaCepController(ViaCepService service) {
             String cleanZipCode = userZipCode.replaceAll("[^0-9]", "");
 
             if (cleanZipCode.length() != 8) {
-                System.out.println("Invalid ZIP code! It must contain exactly 8 numbers.");
+                System.out.println("\nInvalid ZIP code! It must contain exactly 8 numbers.\n");
                 continue;
             }
 

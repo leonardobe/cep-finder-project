@@ -7,13 +7,13 @@ public record ViaCepService(ViaCepClient viaCepClient) {
 
     public String findAddress(String zipCode) {
         if (zipCode == null || zipCode.length() != 8 || !zipCode.matches("\\d+")) {
-            return "Invalid ZIP code. It must contain exactly 8 numbers. \n";
+            return "\nInvalid ZIP code. It must contain exactly 8 numbers. \n";
         }
 
         ViaCepDto address = viaCepClient.searchAddressByZipCode(zipCode);
 
         if (address == null || address.isError()) {
-            return "The address for the ZIP code could not be found in the database: " + zipCode + "\n";
+            return "\nThe address for the ZIP code could not be found in the database: " + zipCode + "\n";
         }
 
         if (address.getStreet() == null || address.getCity() == null || address.getState() == null) {
@@ -23,6 +23,7 @@ public record ViaCepService(ViaCepClient viaCepClient) {
         String formattedCep = zipCode.substring(0, 5) + "-" + zipCode.substring(5);
 
         return """
+
             ━━━━━━━━━━━━━━━━━━━━━━━
             📮 ZIP CODE: %s
             ━━━━━━━━━━━━━━━━━━━━━━━

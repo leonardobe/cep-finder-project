@@ -27,15 +27,15 @@ public class ViaCepClient {
         try (Response response = client.newCall(request).execute()) {
 
             if (!response.isSuccessful()) {
-                System.out.println("⚠️ Unable to retrieve address. Server returned HTTP " + response.code());
+                System.out.println("\n⚠️ Unable to retrieve address. Server returned HTTP " + response.code() + "\n");
             }
 
             String jsonString = response.body().string();
             return mapper.readValue(jsonString, ViaCepDto.class);
 
         } catch (IOException e) {
-            System.out.println("❌ Unable to connect to the ViaCEP service.");
-            System.out.println("Details: " + e.getMessage());
+            System.out.println("\n❌ Unable to connect to the ViaCEP service.");
+            System.out.println("Details: " + e.getMessage() + "\n");
         }
         return null;
     }
