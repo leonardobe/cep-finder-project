@@ -73,7 +73,7 @@ https://viacep.com.br/ws/{CEP}/json/
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/cep-finder.git
+git clone https://github.com/leonardobe/cep-finder-project.git
 ```
 
 2. Navigate to the project folder:
